@@ -1,0 +1,28 @@
+#! /bin/sh
+
+xcompmgr &
+nitrogen --restore &
+lxappearance &
+/usr/lib/pentablet/pentablet.sh &
+
+sxhkd &
+
+bspc monitor eDP -d work search space break void
+bspc monitor HDMI-A-0 -d work search space break void
+
+bspc config border_width         0
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='V' state=floating follow=on
+bspc rule -a Chromium desktop='I'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+pkill polybar
+
+$HOME/.config/polybar/launch.sh

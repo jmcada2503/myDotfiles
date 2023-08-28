@@ -121,5 +121,5 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # screenshot
-super + alt + s
-    $HOME/Pictures/screenshots/screenshot.sh
+super + u
+    $HOME/.scripts/lock.sh

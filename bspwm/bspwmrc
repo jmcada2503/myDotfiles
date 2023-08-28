@@ -2,13 +2,18 @@
 
 xcompmgr &
 nitrogen --restore &
-lxappearance &
-/usr/lib/pentablet/pentablet.sh &
+wmname LG3D &
 
+gnome-terminal &
 sxhkd &
 
-bspc monitor eDP -d work search space break void
-bspc monitor HDMI-A-0 -d work search space break void
+if [ $(xrandr --query | grep ' connected' | wc -l) -eq 1 ]
+then
+    bspc monitor eDP -d w1 s2 a3 b4 c5 w6 s7 a8 b9 c0
+else
+    bspc monitor eDP -d w1 s2 a3 b4 c5
+    bspc monitor HDMI-A-0 -d w6 s7 a8 b9 c0
+fi
 
 bspc config border_width         0
 bspc config window_gap          12

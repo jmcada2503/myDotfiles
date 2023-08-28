@@ -29,7 +29,6 @@ monitor = ${env:MONITOR:}
 width = 100%
 
 background = ${colors.background}
-foreground = ${colors.foreground}
 
 padding-left = 5
 padding-right = 5
@@ -82,7 +81,6 @@ interval = 5
 format-volume = 墳 <label-volume>
 
 label-muted = 奄 muted
-label-muted-foreground = ${colors.disabled}
 
 click-right = pauvcontrol
 
@@ -125,7 +123,7 @@ poll-interval = 5
 
 format-charging =  <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-format-full =  <label-ful>
+format-full =  <label-full>
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 

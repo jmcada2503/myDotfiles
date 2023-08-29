@@ -1,0 +1,22 @@
+#! /bin/sh
+
+xrandr  --output HDMI-A-0 \
+        --mode 1920x1080 \
+        --pos 1920x0 \
+        --rotate normal \
+
+nitrogen --restore &> /dev/null &
+
+bspc desktop w1 --to-monitor HDMI-A-0
+bspc desktop s2 --to-monitor HDMI-A-0
+bspc desktop a3 --to-monitor HDMI-A-0
+bspc desktop b4 --to-monitor HDMI-A-0
+bspc desktop c5 --to-monitor HDMI-A-0
+
+bspc desktop Desktop --remove
+
+xrandr --output HDMI-A-0 --left-of eDP
+
+pkill polybar
+
+$HOME/.config/polybar/launch.sh &> /dev/null &

@@ -1,0 +1,20 @@
+#! /bin/sh
+
+xrandr  --output HDMI-A-0 \
+        --mode 1920x1080 \
+        --pos 1920x0 \
+        --rotate normal \
+
+nitrogen --restore &> /dev/null &
+
+bspc desktop w6 --to-monitor HDMI-A-0
+bspc desktop s7 --to-monitor HDMI-A-0
+bspc desktop a8 --to-monitor HDMI-A-0
+bspc desktop b9 --to-monitor HDMI-A-0
+bspc desktop c0 --to-monitor HDMI-A-0
+
+bspc desktop Desktop --remove
+
+pkill polybar
+
+$HOME/.config/polybar/launch.sh &> /dev/null &

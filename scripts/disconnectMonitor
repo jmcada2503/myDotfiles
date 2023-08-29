@@ -1,0 +1,14 @@
+#! /bin/sh
+
+xrandr  --auto
+
+nitrogen --restore &> /dev/null &
+
+bspc monitor HDMI-A-0 -a Desktop
+bspc desktop w6 --to-monitor eDP
+bspc desktop s7 --to-monitor eDP
+bspc desktop a8 --to-monitor eDP
+bspc desktop b9 --to-monitor eDP
+bspc desktop c0 --to-monitor eDP
+
+bspc desktop Desktop --remove

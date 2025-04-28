@@ -90,3 +90,41 @@ source /Users/jm_cada/.local/bin/zsh-sudo/sudo.plugin.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias ll='lsd -lha --group-dirs=first'
+alias cat='bat'
+
+fw() {
+  aerospace list-windows --all | fzf --style full --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+}
+
+fq() {
+  selection=$(aerospace list-windows --all | fzf --multi --style full --reverse)
+  
+  if [ -z "$selection" ]; then
+      echo "No windows selected. Exiting."
+  fi
+  
+  while IFS= read -r line; do
+      window_id=$(echo "$line" | awk '{print $1}')
+      if [[ "$window_id" =~ ^[0-9]+$ ]]; then
+          bash -c "aerospace close --window-id '$window_id'" &
+      else
+          echo "Invalid window ID: $window_id"
+      fi
+  done <<< "$selection"
+}
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+alias ff="fzf --style full \
+    --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
+
+export NVM_DIR="$HOME/.nvm"
+    [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+    [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+export PATH=$PATH:/Users/jm_cada/Documents/unal/s9/db2/instantclient_23_3

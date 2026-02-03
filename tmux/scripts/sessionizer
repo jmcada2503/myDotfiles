@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find /Volumes/workplace/ ~/Documents/ -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+
+if [[ -z $selected ]]; then
+    if ! tmux has-session -t=main 2> /dev/null; then
+        tmux new-session -ds main -c $HOME \
+	  -x "$(tput cols)" \
+	  -y "$(tput lines)"
+    fi
+    tmux switch-client -t main
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -s $selected_name -c $selected
+    exit 0
+fi
+
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+    tmux new-session -ds $selected_name -c $selected \
+        -x "$(tput cols)" \
+        -y "$(( $(tput lines) + 2 ))"
+fi
+
+tmux switch-client -t $selected_name
+tmux send-keys -t $selected_name:0.0 "y" ENTER

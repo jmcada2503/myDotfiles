@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Get current session name
+current_session="$(tmux display-message -p '#S')"
+
+# Try switching to "main" if it's not the current session
+if tmux has-session -t main 2>/dev/null && [ "$current_session" != "main" ]; then
+    tmux switch-client -t main
+    tmux kill-session -t "$current_session"
+    exit 0
+fi
+
+# Otherwise, find another session (excluding the current one)
+next_session="$(
+    tmux list-sessions -F '#S' \
+    | grep -v "^${current_session}$" \
+    | head -n 1
+)"
+
+if [ -n "$next_session" ]; then
+    tmux switch-client -t "$next_session"
+    tmux kill-session -t "$current_session"
+    exit 0
+fi
+
+# If no sessions remain, kill current and exit tmux entirely
+tmux kill-session -t "$current_session"
+exit 0
+

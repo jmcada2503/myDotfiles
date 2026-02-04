@@ -10,3 +10,4 @@ brew install                    \
     bat                         \
     zsh-autosuggestions         \
     zsh-syntax-highlighting     \
+    yazi                        \

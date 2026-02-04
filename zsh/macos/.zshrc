@@ -32,6 +32,10 @@ preexec() {
 export PATH="/Users/jmcada/.config/smithy-mcp/mcp-servers:$PATH"
 export NODE_OPTIONS=--openssl-legacy-provider
 
+# Set required environment variables for brew in linux
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

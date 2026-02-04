@@ -9,3 +9,4 @@ brew install                    \
     lsd                         \
     bat                         \
     zsh-autosuggestions         \
+    zsh-syntax-highlighting     \

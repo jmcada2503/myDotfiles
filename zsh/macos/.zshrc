@@ -5,6 +5,7 @@ ZSH_THEME="robbyrussell"
 
 alias ll='lsd -lha --group-dirs=first'
 alias cat='bat'
+alias kwinit='kinit -f && mwinit -o'
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
 

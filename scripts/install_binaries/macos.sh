@@ -11,3 +11,5 @@ brew install                    \
     zsh-autosuggestions         \
     zsh-syntax-highlighting     \
     yazi                        \
+    mosh                        \
+    fzf                         \

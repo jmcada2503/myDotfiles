@@ -18,7 +18,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         keymap("<leader>ws", builtin.lsp_dynamic_workspace_symbols)
         keymap("<leader>rn", vim.lsp.buf.rename)
         keymap("<leader>ca", vim.lsp.buf.code_action)
-        keymap("K", vim.lsp.buf.hover)
+        keymap("K", function()
+            vim.lsp.buf.hover({ border = "rounded" })
+        end)
     end
 })
 

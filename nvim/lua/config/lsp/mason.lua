@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap('n', '<leader>ls', ':Mason<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ma', ':Mason<CR>', { noremap = true, silent = true })
 
 require('mason').setup()
 require("mason-lspconfig").setup({

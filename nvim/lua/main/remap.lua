@@ -18,3 +18,9 @@ vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { norema
 
 -- Reopen just closed buffer
 vim.api.nvim_set_keymap('n', '<leader>rt', ':tabe #<CR>', { noremap = true, silent = true, desc = "Reopen last buffer" })
+
+-- Move through tabs
+vim.api.nvim_set_keymap('n', '<leader>l', ':tabnext<CR>', { noremap = true, silent = true, desc = "Move to next buffer" })
+vim.api.nvim_set_keymap('n', '<leader>h', ':tabprevious<CR>', { noremap = true, silent = true, desc = "Move to previousbuffer" })
+vim.api.nvim_set_keymap("n", "<leader>mh", ":-tabmove<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ml", ":+tabmove<CR>", { noremap = true })

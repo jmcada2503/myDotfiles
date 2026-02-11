@@ -6,7 +6,8 @@ vim.opt.expandtab = true    -- Insert spaces when <Tab> is pressed
 vim.opt.shiftround = true   -- Rounds up to the nearest multiple of shiftwidth
 vim.opt.smarttab = true     -- Makes the tab key behave like the indent key (>>)
 
-
+-- Set relative numbers
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Allways have at least 8 lines above/below the cursor
@@ -16,3 +17,5 @@ vim.opt.scrolloff = 8
 vim.o.ignorecase = true
 vim.o.smartcase = true      -- Sensitive when using uppercase letters
 
+-- Set signcolumn to always active
+vim.o.signcolumn = "yes"

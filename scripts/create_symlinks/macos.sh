@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 ln -s ~/.dotfiles/nvim ~/
 ln -s ~/.dotfiles/zsh/macos/.zshrc ~/.zshrc

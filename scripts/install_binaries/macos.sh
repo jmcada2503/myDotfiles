@@ -13,3 +13,5 @@ brew install                    \
     yazi                        \
     mosh                        \
     fzf                         \
+    nvim                        \
+    tmux                        \

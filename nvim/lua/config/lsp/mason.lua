@@ -2,6 +2,12 @@ vim.api.nvim_set_keymap('n', '<leader>ma', ':Mason<CR>', { noremap = true, silen
 
 require('mason').setup()
 require("mason-lspconfig").setup({
+    ensure_installed = {
+        "svelte",
+        "eslint",
+        "pyright",
+        "lua_ls"
+    },
     handlers = {
         function(server_name)
             local server_config = server_configs[server_name] or {}

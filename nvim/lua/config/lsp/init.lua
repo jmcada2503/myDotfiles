@@ -27,3 +27,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 require('config.lsp.mason')
 require('config.lsp.lua')
 require('config.lsp.java')
+require('config.lsp.svelte')

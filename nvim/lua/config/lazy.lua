@@ -87,6 +87,9 @@ require("lazy").setup({
     },
     {
         "mfussenegger/nvim-jdtls",
+    },
+    {
+        "evanleck/vim-svelte"
     }
   }
 })

@@ -9,7 +9,7 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = ['exec-and-forget kitty']
+after-startup-command = ['exec-and-forget open -a kitty.app -n']
 
 # Start AeroSpace at login
 start-at-login = true
@@ -90,7 +90,7 @@ automatically-unhide-macos-hidden-apps = true
     # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
     # You can uncomment the following lines to open up terminal with alt + enter shortcut
     # (like in i3)
-    alt-enter = 'exec-and-forget kitty'
+    alt-enter ='exec-and-forget open -a kitty.app -n'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
@@ -112,7 +112,7 @@ automatically-unhide-macos-hidden-apps = true
     alt-w = 'close'
 
     # Open arc browser
-    alt-a = 'exec-and-forget osascript /Users/jm_cada/.scripts/open_arc_window.scpt'
+    alt-a = 'exec-and-forget osascript /Users/jmcada/.scripts/open_arc_window.scpt'
 
     # Expand foused window to fullscreen mode
     alt-f = 'fullscreen'
@@ -188,11 +188,17 @@ automatically-unhide-macos-hidden-apps = true
     # alt-shift-y = 'move-node-to-workspace Y'
     # alt-shift-z = 'move-node-to-workspace Z'
 
-    ctrl-alt-shift-h = 'focus-monitor left'
-    ctrl-alt-shift-l = 'focus-monitor right'
+    # Monitor navigation for 3 monitors
+    cmd-shift-h = 'focus-monitor left'
+    cmd-shift-j = 'focus-monitor down'
+    cmd-shift-k = 'focus-monitor up'
+    cmd-shift-l = 'focus-monitor right'
 
-    ctrl-alt-shift-k = 'move-node-to-monitor right --focus-follows-window'
-    ctrl-alt-shift-j = 'move-node-to-monitor left --focus-follows-window'
+    # Move windows between monitors
+    cmd-alt-h = 'move-node-to-monitor left --focus-follows-window'
+    cmd-alt-j = 'move-node-to-monitor down --focus-follows-window'
+    cmd-alt-k = 'move-node-to-monitor up --focus-follows-window'
+    cmd-alt-l = 'move-node-to-monitor right --focus-follows-window'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -237,14 +243,14 @@ automatically-unhide-macos-hidden-apps = true
 
 
 [workspace-to-monitor-force-assignment]
-
-1 = 'main'
-2 = 'main'
-3 = 'main'
-4 = 'main'
-5 = 'main'
-6 = ['secondary', 'main']
-7 = ['secondary', 'main']
-8 = ['secondary', 'main']
-9 = ['secondary', 'main']
-0 = ['secondary', 'main']
+# Distribute workspaces across monitors
+1 = 1  # First monitor
+2 = 1  # First monitor
+3 = 2  # Second monitor (fallback to first if not available)
+4 = 2  # Second monitor
+5 = 2  # Second monitor
+6 = 2  # Second monitor
+7 = 2  # Second monitor
+8 = 2  # Second monitor 
+9 = 3  # Third monitor (fallback to second, then first)
+0 = 3  # Third monitor

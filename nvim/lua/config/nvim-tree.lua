@@ -9,6 +9,8 @@ vim.g.loaded_netrwPlugin = 1
 -- KeyBindings
 -- ***********
 vim.api.nvim_set_keymap("n", "<C-e>", ":NvimTreeFindFile<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("v", "<C-e>", ":NvimTreeFindFile<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("i", "<C-e>", ":NvimTreeFindFile<cr>", {silent = true, noremap = true})
 
 local api = require("nvim-tree.api")
 

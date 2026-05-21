@@ -15,3 +15,4 @@ brew install                    \
     fzf                         \
     nvim                        \
     tmux                        \
+    deno

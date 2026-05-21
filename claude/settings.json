@@ -1,0 +1,85 @@
+{
+  "awsCredentialExport": "\"/Users/jmcada/.toolbox/bin/claude\" default-credential-export",
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "AWS_REGION": "us-west-2"
+  },
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Bash",
+      "Glob",
+      "Grep",
+      "LS",
+      "Agent",
+      "WebFetch",
+      "WebSearch",
+      "NotebookEdit",
+      "TodoWrite",
+      "TaskCreate",
+      "TaskUpdate",
+      "TaskList",
+      "mcp__builder-mcp__*"
+    ],
+    "deny": []
+  },
+  "model": "opus",
+  "availableModels": [
+    "opus",
+    "sonnet"
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/stash_command.sh"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notify.sh needs_input"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notify.sh done"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "nelson@nelson-marketplace": true,
+    "superpowers@claude-plugins-official": true,
+    "aws-dev-toolkit@claude-plugins-official": true,
+    "AmazonBuilderCoreAIAgents-pipeline-assistant@aim": true,
+    "AmazonBuilderCoreAIAgents-core@aim": true
+  },
+  "extraKnownMarketplaces": {
+    "aim": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/jmcada/.aim/cc-plugins"
+      }
+    }
+  },
+  "theme": "dark"
+}

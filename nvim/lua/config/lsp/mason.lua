@@ -1,5 +1,14 @@
 vim.api.nvim_set_keymap('n', '<leader>ma', ':Mason<CR>', { noremap = true, silent = true })
 
+-- Show error popup automatically on hover
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, {
+      focusable = false,
+      border = "rounded"
+    })
+  end,
+})
 require('mason').setup()
 require("mason-lspconfig").setup({
     ensure_installed = {

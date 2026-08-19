@@ -19,3 +19,7 @@ vim.o.smartcase = true      -- Sensitive when using uppercase letters
 
 -- Set signcolumn to always active
 vim.o.signcolumn = "yes"
+
+-- Set idle trigger time to 300 milliseconds
+vim.o.updatetime = 300
+

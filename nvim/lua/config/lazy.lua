@@ -92,10 +92,6 @@ require("lazy").setup({
         "evanleck/vim-svelte"
     },
     {
-        "jmcada2503/nvim-kiro",
-        version = "*"
-    },
-    {
         "toppair/peek.nvim",
         event = { "VeryLazy" },
         build = "deno task --quiet build:fast",
@@ -108,5 +104,13 @@ require("lazy").setup({
     {
         "ThePrimeagen/vim-be-good"
     },
+    {
+        'goerz/jupytext.nvim',
+        version = '0.2.0',
+        opts = {},
+    },
+    {
+        'dangooddd/pyrepl.nvim'
+    }
   }
 })

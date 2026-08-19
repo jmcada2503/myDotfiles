@@ -80,8 +80,17 @@ function y() {
 }
 export EDITOR="nvim"
 
-# Kiro CLI post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
+export PATH="$HOME/.local/bin:$PATH"
 
-# Added by AIM CLI
-export PATH="$HOME/.aim/mcp-servers:$PATH"
+# Automatically load .env file if it exists
+if [ -f .env ]; then
+  while IFS= read -r line || [ -n "$line" ]; do
+    # Skip comments and empty lines
+    if [[ ! "$line" =~ ^\s*# && -n "$line" ]]; then
+      export "$line"
+    fi
+  done < .env
+fi
+
+# opencode
+export PATH=/Users/jm_cada/.opencode/bin:$PATH

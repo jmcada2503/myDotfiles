@@ -21,7 +21,6 @@ vim.keymap.set("n", "<leader>no", pyrepl.open_repl)
 vim.keymap.set("n", "<leader>nh", pyrepl.hide_repl)
 vim.keymap.set("n", "<leader>nq", pyrepl.close_repl)
 vim.keymap.set("n", "<leader>nt", pyrepl.toggle_repl)
-vim.keymap.set("n", "<leader>ni", pyrepl.open_image_history)
 vim.keymap.set({ "n", "t" }, "<C-j>", pyrepl.toggle_repl_focus)
 
 -- send commands
@@ -33,4 +32,4 @@ vim.keymap.set("v", "<leader>nv", pyrepl.send_visual)
 vim.keymap.set("n", "<leader>np", pyrepl.step_cell_backward)
 vim.keymap.set("n", "<leader>nn", pyrepl.step_cell_forward)
 vim.keymap.set("n", "<leader>ne", pyrepl.export_to_notebook)
-vim.keymap.set("n", "<leader>ns", ":PyreplInstall pip")
+vim.keymap.set("n", "<leader>ni", ":PyreplInstall pip")

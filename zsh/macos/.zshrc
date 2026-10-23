@@ -7,6 +7,9 @@ alias ll='lsd -lha --group-dirs=first'
 alias cat='bat'
 alias kwinit='kinit -f && mwinit -o'
 
+alias gla='git log --oneline --graph --all'
+alias gs='git status -s'
+
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
 
 export PATH=$HOME/.toolbox/bin:$PATH
@@ -94,3 +97,11 @@ fi
 
 # opencode
 export PATH=/Users/jm_cada/.opencode/bin:$PATH
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+. "/Users/jm_cada/.deno/env"
+
+# Golang
+export PATH="$PATH:$(go env GOPATH)/bin"

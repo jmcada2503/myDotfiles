@@ -112,7 +112,7 @@ automatically-unhide-macos-hidden-apps = true
     alt-w = 'close'
 
     # Open arc browser
-    alt-a = 'exec-and-forget osascript /Users/jmcada/.scripts/open_arc_window.scpt'
+    alt-a = 'exec-and-forget osascript /Users/jm_cada/.scripts/open_arc_window.scpt'
 
     # Expand foused window to fullscreen mode
     alt-f = 'fullscreen'

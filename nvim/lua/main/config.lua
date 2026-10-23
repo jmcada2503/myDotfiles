@@ -23,3 +23,6 @@ vim.o.signcolumn = "yes"
 -- Set idle trigger time to 300 milliseconds
 vim.o.updatetime = 300
 
+-- Set python indentation
+vim.g.pyindent_open_paren = 'shiftwidth()'
+vim.g.python_indent = { closed_paren_align_last_line = false }

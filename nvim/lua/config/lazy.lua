@@ -111,6 +111,22 @@ require("lazy").setup({
     },
     {
         'dangooddd/pyrepl.nvim'
+    },
+    {
+        'saghen/blink.cmp', -- Used for autocompletion
+        lazy = false,
+        dependencies = 'rafamadriz/friendly-snippets', -- Adds lots of pre-made snippets
+        version = '*', -- Use a stable release
+    },
+    {
+        "stevearc/vim-arduino"
+    },
+    {
+        "jpalardy/vim-slime",
+        lazy = false,
+    },
+    {
+        'jmcada2503/nvim-kiro'
     }
   }
 })
